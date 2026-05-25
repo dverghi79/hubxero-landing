@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HubXero - HubSpot + Xero sync with AI follow-up</title>
+  <meta name="description" content="HubXero connects HubSpot and Xero so closed deals create invoices instantly, payment status syncs back automatically, and AI follows up on overdue invoices so your team never has to." />
+  <meta property="og:title" content="HubXero - HubSpot + Xero sync with AI follow-up" />
+  <meta property="og:description" content="HubXero connects HubSpot and Xero so closed deals create invoices instantly, payment status syncs back automatically, and AI follows up on overdue invoices so your team never has to." />
+  <meta property="og:url" content="https://hubxero.leanaistudio.com" />
+  <meta property="og:image" content="https://hubxero.leanaistudio.com/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HubXero - HubSpot + Xero sync with AI follow-up" />
+  <meta name="twitter:description" content="HubXero connects HubSpot and Xero so closed deals create invoices instantly, payment status syncs back automatically, and AI follows up on overdue invoices so your team never has to." />
+  <meta name="twitter:image" content="https://hubxero.leanaistudio.com/og-image.png" />
+  <link rel="canonical" href="https://hubxero.leanaistudio.com" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3EM5 12h14M12 5l7 7-7 7%3C/svg%3E" />
+
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "");
+  </script>
+
+  <!-- Google Ads gtag — region-based consent -->
+  <script>
+    var gtagLoaded = false;
+    function loadGtag() {
+      if (gtagLoaded) return;
+      gtagLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);};
+      /* Region-specific consent: EU/EEA = denied (GDPR), rest of world = granted */
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR',
+                 'DE','GR','HU','IE','IT','LV','LT','LU','MT','NL',
+                 'PL','PT','RO','SK','SI','ES','SE','IS','LI','NO',
+                 'GB','CH']
+      });
+      gtag('consent', 'default', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          analytics_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+        });
+      }
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18071371531';
+      s.async = true;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'AW-18071371531');
+    }
+    function grantConsent() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      loadGtag();
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          analytics_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+        });
+      }
+      if (typeof clarity === 'function') clarity('consent');
+    }
+    loadGtag();
+    document.addEventListener('DOMContentLoaded', function() {
+      var consent = localStorage.getItem('cookie_consent');
+      if (consent === 'accepted') { grantConsent(); }
+    });
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #08080a; color: #e4e4e7; line-height: 1.6; overflow-x: hidden; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Inter', system-ui, sans-serif; line-height: 1.15; }
+
+    /* ── Scroll Animations ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* ── Colors ── */
+    :root {
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6,182,212,0.15);
+      --surface: rgba(255,255,255,0.03);
+      --surface-hover: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 6rem 0; position: relative; scroll-margin-top: 80px; }
+    @media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
+
+    /* ── Typography ── */
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); border-radius: 9999px; padding: 0.4rem 0.9rem; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; backdrop-filter: blur(8px); background: var(--surface); }
+    .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.5); } }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); font-family: 'JetBrains Mono', monospace; margin-bottom: 1rem; }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); max-width: 680px; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin-top: 1rem; }
+
+    /* ── Animated gradient text ── */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--cyan) 0%, #22d3ee 50%, var(--cyan) 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    /* ── Hero gradient bg ── */
+    .hero-gradient {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 700px;
+      background: radial-gradient(ellipse at center, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.02) 40%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── Floating glow orbs (decorative) ── */
+    .glow-orb {
+      position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); opacity: 0.5;
+      animation: float-orb 8s ease-in-out infinite;
+    }
+    @keyframes float-orb { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } }
+
+    /* ── Glass card ── */
+    .glass-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .glass-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--cyan); color: #08080a; font-weight: 700; font-size: 0.95rem;
+      border: none; border-radius: 12px; padding: 0.85rem 2rem;
+      text-decoration: none; cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.2s; position: relative; overflow: hidden;
+    }
+    .btn-primary:hover { background: #0891b2; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(6,182,212,0.25); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); font-size: 0.95rem; font-weight: 500;
+      text-decoration: none; padding: 0.85rem 1.5rem; border-radius: 12px;
+      border: 1px solid var(--border); transition: all 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text-primary); border-color: var(--border-hover); background: var(--surface); }
+
+    /* ── Sticky header ── */
+    .sticky-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(8,8,10,0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .sticky-header .inner { max-width: 1120px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .sticky-header .btn-sm { background: var(--cyan); color: #08080a; font-weight: 700; border-radius: 10px; padding: 0.45rem 1.25rem; font-size: 0.85rem; text-decoration: none; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+    .sticky-header .btn-sm:hover { background: #0891b2; }
+    .sticky-header nav a:not(.btn-sm):hover { color: var(--cyan); }
+
+    /* ── Mobile hamburger menu ── */
+    .hamburger { display:none;background:none;border:none;cursor:pointer;padding:0.4rem;-webkit-tap-highlight-color:transparent; }
+    .hamburger svg { display:block; }
+    .mobile-nav-overlay { display:none; }
+    @media (max-width: 768px) {
+      .sticky-header nav { display: none !important; }
+      .sticky-header .btn-sm.desktop-cta { display: none !important; }
+      .hamburger { display:block; }
+      .mobile-nav-overlay {
+        display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;
+        background:rgba(8,8,10,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+        flex-direction:column;align-items:center;justify-content:center;gap:0;
+      }
+      .mobile-nav-overlay.open { display:flex; }
+      .mobile-nav-overlay a {
+        font-size:1.25rem;font-weight:600;color:var(--text-primary);text-decoration:none;
+        padding:1rem 2rem;width:100%;text-align:center;transition:color 0.2s;
+      }
+      .mobile-nav-overlay a:hover { color:var(--cyan); }
+      .mobile-nav-overlay .mobile-nav-cta {
+        margin-top:1.5rem;background:var(--cyan);color:#08080a;font-weight:700;
+        border-radius:12px;padding:0.85rem 2rem;font-size:1rem;width:auto;
+      }
+      .mobile-nav-close {
+        position:absolute;top:1rem;right:1.5rem;background:none;border:none;
+        cursor:pointer;padding:0.5rem;-webkit-tap-highlight-color:transparent;
+      }
+    }
+
+    /* ── Capabilities Tabs ── */
+    .cap-tab {
+      display:flex;align-items:center;gap:0.75rem;width:100%;padding:0.9rem 1.5rem;
+      border:none;background:transparent;color:var(--text-muted);font-size:0.9rem;
+      font-weight:500;cursor:pointer;transition:all 0.2s;text-align:left;
+      border-left:3px solid transparent;font-family:inherit;position:relative;overflow:hidden;
+    }
+    .cap-tab:hover { color:var(--text-primary);background:rgba(255,255,255,0.03); }
+    .cap-tab.active {
+      color:var(--cyan);background:rgba(6,182,212,0.06);
+      border-left-color:var(--cyan);font-weight:600;
+    }
+    .cap-tab svg { flex-shrink:0; }
+    .cap-tab::after {
+      content:'';position:absolute;left:0;bottom:0;height:2px;width:0;
+      background:linear-gradient(90deg, var(--cyan), rgba(6,182,212,0.3));
+      transition:none;
+    }
+    .cap-tab.active.rotating::after {
+      width:100%;
+      animation:capProgress var(--rotate-ms, 4000ms) linear forwards;
+    }
+    @keyframes capProgress { from{width:0} to{width:100%} }
+    .cap-panel { display:none;animation:fadePanel 0.3s ease; }
+    .cap-panel.active { display:block; }
+    @keyframes fadePanel { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .cap-chip {
+      display:inline-block;padding:0.3rem 0.75rem;border-radius:20px;
+      font-size:0.75rem;font-weight:500;color:var(--cyan);
+      background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);
+    }
+    @media (max-width: 768px) {
+      .capabilities-wrap { grid-template-columns:1fr !important; }
+      .capabilities-wrap > div:first-child {
+        border-right:none !important;border-bottom:1px solid var(--border);
+        display:flex;overflow-x:auto;padding:0.75rem !important;gap:0.25rem;
+      }
+      .cap-tab { white-space:nowrap;border-left:none;border-bottom:2px solid transparent;padding:0.6rem 1rem;font-size:0.8rem; }
+      .cap-tab.active { border-left-color:transparent;border-bottom-color:var(--cyan); }
+      .cap-tab::after { bottom:0;left:0;height:2px; }
+      .cap-tab.active.rotating { border-bottom-color:transparent; }
+      .cap-panels-container { padding: 1.25rem !important; min-height: auto !important; }
+      .cap-mockup-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Grids ── */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    @media (max-width: 768px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+    /* ── Hero grid ── */
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1120px; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } .hero-image { display: none; } }
+
+    /* ── Step indicator ── */
+    .step-num { width: 2.5rem; height: 2.5rem; border-radius: 12px; background: var(--cyan-glow); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--cyan); flex-shrink: 0; }
+
+    /* ── Pipeline flow ── */
+    /* Pipeline uses inline styles — no class rules needed */
+
+    /* ── Founding box (waitlist accent section) ── */
+    /* .founding-box removed — waitlist section uses plain grid-2 */
+
+/* ── Tags ── */
+    .tag { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 9999px; transition: all 0.2s; }
+    .tag:hover { border-color: var(--border-hover); color: var(--text-secondary); }
+
+    /* ── Separator ── */
+    .sep { width: 100%; height: 1px; background: var(--border); }
+
+    /* ── Form inputs ── */
+    input, select, textarea { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-primary); outline: none; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 0.95rem; padding: 0.65rem 1rem; transition: all 0.2s; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(6,182,212,0.4); box-shadow: 0 0 0 3px rgba(6,182,212,0.1); }
+    ::placeholder { color: var(--text-muted); }
+    select option { background: #18181b; }
+
+    /* ── Mobile helpers ── */
+    .hide-mobile { }
+    @media (max-width: 768px) {
+      .hide-mobile { display: none !important; }
+      .btn-primary { width: 100%; justify-content: center; }
+      input, select, textarea { width: 100% !important; min-height: 48px !important; font-size: 16px !important; }
+      button[type="submit"] { min-height: 48px !important; }
+      .mobile-hide-img { display: none !important; }
+    }
+    .show-mobile-only { display: none !important; }
+    @media (max-width: 768px) { .show-mobile-only { display: block !important; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HubXero",
+    "url": "https://hubxero.leanaistudio.com",
+    "description": "HubXero connects HubSpot and Xero so closed deals create invoices instantly, payment status syncs back automatically, and AI follows up on overdue invoices so your team never has to.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Join the waitlist for early access"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       STICKY HEADER
+       ═══════════════════════════════════════════ -->
+  <header class="sticky-header">
+    <div class="inner">
+      <a href="#" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          M13 10V3L4 14h7v7l9-11h-7z
+        </svg>
+        <span style="font-weight:800;font-size:1.2rem;color:var(--text-primary);letter-spacing:-0.02em;">HubXero</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:1.8rem;">
+        <a href="#product" style="font-size:0.95rem;font-weight:500;color:var(--text-primary);text-decoration:none;transition:color 0.2s;">Product</a>
+        <a href="#the-problem" style="font-size:0.95rem;font-weight:500;color:var(--text-primary);text-decoration:none;transition:color 0.2s;">Problem</a>
+        <a href="#how-it-works" style="font-size:0.95rem;font-weight:500;color:var(--text-primary);text-decoration:none;transition:color 0.2s;">How It Works</a>
+        <a href="#built-for" style="font-size:0.95rem;font-weight:500;color:var(--text-primary);text-decoration:none;transition:color 0.2s;">Built For</a>
+      </nav>
+      <a href="#waitlist" class="btn-sm desktop-cta">Join the waitlist</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.add('open')" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <button class="mobile-nav-close" onclick="document.getElementById('mobile-nav').classList.remove('open')" aria-label="Close menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a href="#product" onclick="document.getElementById('mobile-nav').classList.remove('open')">Product</a>
+    <a href="#the-problem" onclick="document.getElementById('mobile-nav').classList.remove('open')">Problem</a>
+    <a href="#how-it-works" onclick="document.getElementById('mobile-nav').classList.remove('open')">How It Works</a>
+    <a href="#built-for" onclick="document.getElementById('mobile-nav').classList.remove('open')">Built For</a>
+    <a href="#waitlist" class="mobile-nav-cta" onclick="document.getElementById('mobile-nav').classList.remove('open')">Join the waitlist</a>
+  </div>
+
+  <div style="height:3.25rem;"></div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO — 2-column grid: copy left, AI image right
+       ═══════════════════════════════════════════ -->
+  <section style="padding:5rem 0 4rem;position:relative;overflow:hidden;">
+    <div class="hero-gradient"></div>
+    <div class="glow-orb" style="width:300px;height:300px;background:rgba(6,182,212,0.06);top:100px;right:-100px;"></div>
+    <div class="glow-orb" style="width:200px;height:200px;background:rgba(6,182,212,0.04);bottom:0;left:-50px;animation-delay:3s;"></div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero-grid">
+        <!-- Left: Copy -->
+        <div>
+          <div class="reveal" style="margin-bottom:1.5rem;">
+            <div class="badge"><span class="dot"></span> Founding cohort open</div>
+          </div>
+
+          <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.25rem,4.5vw,3.25rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--text-primary);">
+            Closed Won. Invoice sent. <span class="gradient-text">AI follows up when it goes overdue.</span>
+          </h1>
+
+          <p class="reveal reveal-delay-1" style="font-size:1.1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem;max-width:540px;">HubXero connects HubSpot and Xero so every closed deal creates its own invoice, every payment syncs back to your deal stage automatically, and overdue invoices follow up on themselves. No spreadsheets. No Zapier. No manual chasing.</p>
+
+          <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:0.65rem;margin-bottom:2.5rem;max-width:600px;">
+            <div style="display:flex;align-items:center;gap:0.75rem;font-size:1.05rem;color:var(--text-secondary);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Deal closes in HubSpot. Invoice appears in Xero in seconds - automatically.
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;font-size:1.05rem;color:var(--text-secondary);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Xero marks it paid. HubSpot deal stage updates without anyone touching it.
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;font-size:1.05rem;color:var(--text-secondary);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Invoice goes overdue. AI drafts and sends the follow-up. You approve or let it run.
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-3" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+            <a href="#waitlist" class="btn-primary">
+              Join the waitlist for early access
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
+          </div>
+
+          <!-- Risk reversal badges -->
+          <div class="reveal reveal-delay-3" style="display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:1.5rem;">
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Free to join
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No credit card
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Cancel anytime
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Hero AI image (generated via DrawThings MCP) -->
+        <div class="hero-image reveal reveal-delay-2">
+          <div style="border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:1px solid var(--border);">
+            <img src="images/hero-user.png" alt="Finance manager smiling at laptop, HubSpot and Xero dashboards visible" style="width:100%;height:auto;display:block;" loading="eager" />
+          </div>
+          <!-- Founder proof badge below hero image -->
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1rem;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:12px;background:var(--surface);backdrop-filter:blur(8px);">
+            <img src="https://leanaistudio.com/founder.jpeg" alt="Dario Verghi" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(16,185,129,0.2);" />
+            <div>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-primary);font-weight:600;">Built by <a href="https://www.linkedin.com/in/verghi/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">Dario Verghi</a>, Founder of <a href="https://leanaistudio.com" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">LeanAI Studio</a></p>
+              <p style="margin:0.15rem 0 0;font-size:0.72rem;color:var(--text-muted);">Built for HubSpot+Xero teams after the March 2026 retirement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CAPABILITIES — Vertical tabbed feature showcase
+       ═══════════════════════════════════════════ -->
+  <section id="product" style="padding:4rem 0 5rem;">
+    <div class="container">
+      <p class="section-label reveal">Capabilities</p>
+      <h2 class="section-title reveal" style="max-width:700px;margin:0 auto 3rem;">
+        Five features. <span class="gradient-text">One job done right.</span>
+      </h2>
+
+      <div class="reveal-scale capabilities-wrap" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#111114;">
+        <!-- Tab List (left sidebar) -->
+        <div style="border-right:1px solid var(--border);padding:1.25rem 0;">
+          <button class="cap-tab active" data-tab="0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Invoice Creation
+          </button>
+          <button class="cap-tab" data-tab="1">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            Payment Sync
+          </button>
+          <button class="cap-tab" data-tab="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            AI Follow-Up
+          </button>
+          <button class="cap-tab" data-tab="3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Contact Sync
+          </button>
+          <button class="cap-tab" data-tab="4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Sync Health
+          </button>
+        </div>
+
+        <!-- Tab Panels (right content area) -->
+        <div class="cap-panels-container" style="padding:2.5rem;position:relative;min-height:380px;">
+          <div class="cap-panel active" data-panel="0">
+            <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">Closed-Won to Invoice in Seconds</h3>
+            <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">The moment a deal moves to Closed-Won in HubSpot, HubXero reads the deal value, contact, and line items and creates a matching draft invoice in Xero. No copy-paste. No manual entry. No intern fatigue.</p>
+            <!-- Without / With -->
+            <div style="display:flex;gap:0.5rem;margin-bottom:1rem;font-size:0.72rem;">
+              <span style="color:var(--text-muted);"><span style="color:#ef4444;">Today:</span> Finance manually re-enters deal data into Xero after Sales closes. Average lag: 1-3 days.</span>
+              <span style="color:var(--text-muted);">|</span>
+              <span style="color:var(--text-muted);"><span style="color:var(--cyan);">With HubXero:</span> Invoice appears in Xero within 60 seconds of Closed-Won. Every time.</span>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;background:#0d0d10;">
+              <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.3);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 6px #22c55e;"></div>
+            <span style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">HubSpot Trigger</span>
+          </div>
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+            <div style="color:#86efac;font-size:12px;font-weight:600;">Acme Corp - Website Redesign</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+              <span style="background:#22c55e;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;">CLOSED WON</span>
+              <span style="color:#94a3b8;font-size:11px;">$12,500 · 2 line items</span>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:center;padding:6px 0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <div style="width:8px;height:8px;background:#06b6d4;border-radius:50%;box-shadow:0 0 6px #06b6d4;animation:pulse 2s infinite;"></div>
+            <span style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Xero Invoice Created</span>
+          </div>
+          <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.25);border-radius:8px;padding:10px 12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="color:#e2e8f0;font-size:12px;font-weight:600;">INV-0047 · Acme Corp</span>
+              <span style="background:rgba(251,191,36,0.15);color:#fbbf24;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600;">DRAFT</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;">
+              <span>Website Redesign (x1)</span><span>$12,500.00</span>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.06);margin-top:8px;padding-top:6px;display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#06b6d4;">
+              <span>Total</span><span>$12,500.00</span>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:10px;color:#64748b;font-size:11px;">Created in 0:47 seconds</div>
+        </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="cap-chip">Xero draft invoice created automatically</span>
+              <span class="cap-chip">Line items and contact mapped from HubSpot</span>
+              <span class="cap-chip">Works for both Xero and QuickBooks</span>
+            </div>
+          </div>
+          <div class="cap-panel" data-panel="1">
+            <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">Payment Status Syncs Back to HubSpot Automatically</h3>
+            <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">When Xero marks an invoice as paid, partially paid, overdue, or voided, HubXero updates your HubSpot deal stage to match. No more checking two systems. No more "did they actually pay?" conversations between Sales and Finance.</p>
+            <!-- Without / With -->
+            <div style="display:flex;gap:0.5rem;margin-bottom:1rem;font-size:0.72rem;">
+              <span style="color:var(--text-muted);"><span style="color:#ef4444;">Today:</span> Sales has no idea which deals have outstanding invoices. Finance checks Xero. Sales checks HubSpot. Nobody agrees.</span>
+              <span style="color:var(--text-muted);">|</span>
+              <span style="color:var(--text-muted);"><span style="color:var(--cyan);">With HubXero:</span> HubSpot deal stage reflects real payment status, updated every 15 minutes from Xero.</span>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;background:#0d0d10;">
+              <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.3);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;">
+          <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">HubSpot Deal View</div>
+          <div style="display:grid;gap:6px;">
+            <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="color:#e2e8f0;font-size:12px;font-weight:600;">Acme Corp</div><div style="color:#94a3b8;font-size:11px;">INV-0047 · $12,500</div></div>
+              <span style="background:rgba(34,197,94,0.2);color:#22c55e;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:700;">PAID</span>
+            </div>
+            <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="color:#e2e8f0;font-size:12px;font-weight:600;">TechBridge Ltd</div><div style="color:#94a3b8;font-size:11px;">INV-0048 · $8,200</div></div>
+              <span style="background:rgba(251,191,36,0.15);color:#fbbf24;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:700;">OVERDUE</span>
+            </div>
+            <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="color:#e2e8f0;font-size:12px;font-weight:600;">Sunrise Agency</div><div style="color:#94a3b8;font-size:11px;">INV-0051 · $4,750</div></div>
+              <span style="background:rgba(6,182,212,0.15);color:#06b6d4;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:700;">SENT</span>
+            </div>
+          </div>
+          <div style="margin-top:10px;border-top:1px solid rgba(255,255,255,0.06);padding-top:8px;display:flex;align-items:center;gap:6px;">
+            <div style="width:6px;height:6px;background:#06b6d4;border-radius:50%;"></div>
+            <span style="color:#64748b;font-size:11px;">Last synced from Xero 8 minutes ago</span>
+          </div>
+        </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="cap-chip">Payment status syncs to HubSpot deal stage</span>
+              <span class="cap-chip">15-minute polling intervals (reliable, not webhook-dependent)</span>
+              <span class="cap-chip">Invoice payment timeline visible inside each HubSpot deal</span>
+            </div>
+          </div>
+          <div class="cap-panel" data-panel="2">
+            <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">AI Drafts and Sends Overdue Follow-Ups</h3>
+            <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">When an invoice goes overdue, HubXero's AI analyses the payment history, the relationship, and the invoice size and drafts a contextual follow-up email. Send it instantly, schedule it, or set it to fully automatic. Intelligent timing. Not just a template timer.</p>
+            <!-- Without / With -->
+            <div style="display:flex;gap:0.5rem;margin-bottom:1rem;font-size:0.72rem;">
+              <span style="color:var(--text-muted);"><span style="color:#ef4444;">Today:</span> Invoice Follow-Up is Manual. Missed. Late. Awkward. (Your team's words, not ours.)</span>
+              <span style="color:var(--text-muted);">|</span>
+              <span style="color:var(--text-muted);"><span style="color:var(--cyan);">With HubXero:</span> AI drafts the follow-up at the right moment. You approve or let it run.</span>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;background:#0d0d10;">
+              <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(139,92,246,0.3);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="background:rgba(139,92,246,0.2);border-radius:6px;padding:4px 8px;display:flex;align-items:center;gap:4px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              <span style="color:#a78bfa;font-size:11px;font-weight:600;">AI DRAFT</span>
+            </div>
+            <span style="color:#94a3b8;font-size:11px;">INV-0048 · TechBridge Ltd · 14 days overdue</span>
+          </div>
+          <div style="background:rgba(30,41,59,0.8);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:12px;font-size:12px;color:#cbd5e1;line-height:1.6;">
+            <div style="color:#94a3b8;margin-bottom:6px;font-size:11px;">To: sarah@techbridge.io · Subject: Invoice #0048 - quick check-in</div>
+            <div>Hi Sarah,</div>
+            <div style="margin-top:6px;">I wanted to follow up on invoice #0048 for £8,200, which was due 14 days ago. I know Q2 has been busy - just checking whether it's in your payment queue or whether there's anything I can help clarify.</div>
+            <div style="margin-top:6px;">Happy to resend or adjust the due date if needed.</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px;">
+            <button style="flex:1;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:11px;font-weight:600;padding:6px 0;border-radius:6px;cursor:pointer;">Send Now</button>
+            <button style="flex:1;background:rgba(30,41,59,0.8);border:1px solid rgba(255,255,255,0.1);color:#94a3b8;font-size:11px;padding:6px 0;border-radius:6px;cursor:pointer;">Edit</button>
+            <button style="flex:1;background:rgba(30,41,59,0.8);border:1px solid rgba(255,255,255,0.1);color:#94a3b8;font-size:11px;padding:6px 0;border-radius:6px;cursor:pointer;">Skip</button>
+          </div>
+        </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="cap-chip">AI-timed dunning emails (not just rule-based reminders)</span>
+              <span class="cap-chip">Tone adapts: gentle nudge at 7 days, firm at 14, escalation at 30</span>
+              <span class="cap-chip">Upsell suggestion when invoice is paid (optional)</span>
+            </div>
+          </div>
+          <div class="cap-panel" data-panel="3">
+            <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">Smart Contact Matching - No More Duplicate Chaos</h3>
+            <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">HubSpot allows duplicate contacts with the same name. Xero does not. HubXero's fuzzy matching engine resolves the mismatch before it becomes a sync failure - matching on email, company domain, and name similarity to find the right Xero contact every time.</p>
+            <!-- Without / With -->
+            <div style="display:flex;gap:0.5rem;margin-bottom:1rem;font-size:0.72rem;">
+              <span style="color:var(--text-muted);"><span style="color:#ef4444;">Today:</span> 'Steve Smith' in HubSpot breaks your Xero sync because Xero already has three Steve Smiths. Invoice fails silently.</span>
+              <span style="color:var(--text-muted);">|</span>
+              <span style="color:var(--text-muted);"><span style="color:var(--cyan);">With HubXero:</span> AI matches the right contact by email and domain. No sync failures from duplicates.</span>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;background:#0d0d10;">
+              <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.3);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;">
+          <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Contact Matching</div>
+          <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:10px 12px;margin-bottom:8px;">
+            <div style="color:#fbbf24;font-size:11px;font-weight:600;margin-bottom:4px;">HubSpot contact</div>
+            <div style="color:#e2e8f0;font-size:13px;font-weight:700;">Steve Smith</div>
+            <div style="color:#94a3b8;font-size:11px;">s.smith@acmecorp.io · Acme Corp</div>
+          </div>
+          <div style="display:flex;justify-content:center;align-items:center;gap:6px;padding:6px 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <span style="color:#06b6d4;font-size:11px;font-weight:600;">AI matched · 94% confidence</span>
+          </div>
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:8px;padding:10px 12px;">
+            <div style="color:#86efac;font-size:11px;font-weight:600;margin-bottom:4px;">Xero contact matched</div>
+            <div style="color:#e2e8f0;font-size:13px;font-weight:700;">Stephen Smith</div>
+            <div style="color:#94a3b8;font-size:11px;">s.smith@acmecorp.io · ACME Corporation Ltd</div>
+          </div>
+          <div style="margin-top:8px;text-align:center;color:#64748b;font-size:11px;">Matched on email domain · No sync failure</div>
+        </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="cap-chip">AI fuzzy contact matching (email + domain + name)</span>
+              <span class="cap-chip">Duplicate resolution before invoice creation</span>
+              <span class="cap-chip">Contact sync both directions (HubSpot and Xero)</span>
+            </div>
+          </div>
+          <div class="cap-panel" data-panel="4">
+            <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">Sync Errors Explained and Replayed</h3>
+            <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">When a sync event fails, HubXero tells you exactly why in plain English and gives you a one-click replay button once the issue is resolved. No more mysteries. No more Zapier tasks that fire sporadically and silently fail.</p>
+            <!-- Without / With -->
+            <div style="display:flex;gap:0.5rem;margin-bottom:1rem;font-size:0.72rem;">
+              <span style="color:var(--text-muted);"><span style="color:#ef4444;">Today:</span> Your Zapier zap failed. You don't know why. The invoice was never created. Finance discovers the gap 3 weeks later.</span>
+              <span style="color:var(--text-muted);">|</span>
+              <span style="color:var(--text-muted);"><span style="color:var(--cyan);">With HubXero:</span> Every sync error is logged with a clear reason and a replay button. Nothing falls through silently.</span>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;background:#0d0d10;">
+              <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.3);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Sync Health</span>
+            <div style="display:flex;align-items:center;gap:4px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:3px 10px;">
+              <div style="width:6px;height:6px;background:#22c55e;border-radius:50%;"></div>
+              <span style="color:#22c55e;font-size:10px;font-weight:600;">98.3% uptime this week</span>
+            </div>
+          </div>
+          <div style="display:grid;gap:6px;">
+            <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="color:#e2e8f0;font-size:11px;font-weight:600;">Acme Corp · INV-0047</div><div style="color:#94a3b8;font-size:10px;">Invoice created · Deal stage updated</div></div>
+              <span style="color:#22c55e;font-size:10px;font-weight:700;">OK</span>
+            </div>
+            <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:8px 10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div><div style="color:#e2e8f0;font-size:11px;font-weight:600;">NovaTech · INV-0049</div><div style="color:#fca5a5;font-size:10px;">Duplicate contact in Xero - resolved</div></div>
+                <button style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;cursor:pointer;">Replay</button>
+              </div>
+            </div>
+            <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="color:#e2e8f0;font-size:11px;font-weight:600;">BlueLine Media · INV-0050</div><div style="color:#94a3b8;font-size:10px;">Payment synced · Stage moved to Invoiced-Paid</div></div>
+              <span style="color:#22c55e;font-size:10px;font-weight:700;">OK</span>
+            </div>
+          </div>
+        </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="cap-chip">Plain-English error explanations (no API jargon)</span>
+              <span class="cap-chip">One-click replay once issue is resolved</span>
+              <span class="cap-chip">Weekly sync health digest emailed to admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       THE PROBLEM — headline, then 3 glass cards with images
+       ═══════════════════════════════════════════ -->
+  <section id="the-problem">
+    <div class="container">
+      <div class="reveal" style="max-width:700px;">
+        <p class="section-label">The Problem</p>
+        <h2 class="section-title">
+          Your HubSpot and Xero <span class="gradient-text">are living in different realities.</span>
+        </h2>
+      </div>
+
+      <div class="grid-3" style="margin-top:3rem;">
+        <div class="glass-card reveal reveal-delay-1" style="padding:0;overflow:hidden;">
+          <div style="border-radius:0;overflow:hidden;aspect-ratio:1/1;">
+            <img src="images/problem-1.png" alt="Person looking frustrated at spreadsheet with two browser windows open side by side" style="width:100%;height:100%;display:block;object-fit:cover;" loading="lazy" />
+          </div>
+          <div style="padding:1.5rem;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">The Spreadsheet Bridge</h3>
+            <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">When Xero's native HubSpot integration retired in March 2026, thousands of teams went back to the spreadsheet bridge. Your ops team maintains a monster spreadsheet to reconcile two systems that should talk to each other automatically. Every entry is a tax on your team's time and attention.</p>
+          </div>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-2" style="padding:0;overflow:hidden;">
+          <div style="border-radius:0;overflow:hidden;aspect-ratio:1/1;">
+            <img src="images/problem-2.png" alt="Finance manager staring at empty dashboard, confused about payment status" style="width:100%;height:100%;display:block;object-fit:cover;" loading="lazy" />
+          </div>
+          <div style="padding:1.5rem;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">The Payment Blindspot</h3>
+            <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Your HubSpot deal says Closed Won. But has the invoice gone out? Has it been paid? Is it overdue? Nobody knows without opening Xero in another tab and searching manually. Finance and Sales teams sit in separate systems, unable to agree on what the revenue picture actually looks like.</p>
+          </div>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-3" style="padding:0;overflow:hidden;">
+          <div style="border-radius:0;overflow:hidden;aspect-ratio:1/1;">
+            <img src="images/problem-3.png" alt="Person typing awkward email at laptop, looking uncomfortable" style="width:100%;height:100%;display:block;object-fit:cover;" loading="lazy" />
+          </div>
+          <div style="padding:1.5rem;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">The Overdue Chase</h3>
+            <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Invoice Follow-Up: Manual. Missed. Late. Awkward. Someone has to check which invoices are overdue, figure out what to say, and send the email. It falls through the cracks. The payment is delayed. The cash flow gap widens. And when it does happen, it is uncomfortable for everyone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       HOW IT WORKS — Pipeline flow + 3 step cards with images
+       ═══════════════════════════════════════════ -->
+  <section id="how-it-works" style="background:linear-gradient(135deg,rgba(6,182,212,0.03) 0%,rgba(6,182,212,0.01) 100%);border-top:1px solid rgba(6,182,212,0.1);border-bottom:1px solid rgba(6,182,212,0.1);">
+    <div class="container">
+      <div style="margin-bottom:3rem;">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">Set it up in <span class="gradient-text">under 10 minutes.</span></h2>
+      </div>
+
+      <!-- Pipeline flow — desktop only, 3 stages: cyan → purple → green -->
+      <div class="reveal hide-mobile" style="display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:3rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+        <!-- Stage 1 (cyan) -->
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:2.75rem;height:2.75rem;border-radius:12px;background:rgba(6,182,212,0.15);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          </div>
+          <div>
+            <p style="margin:0;font-size:0.75rem;font-weight:700;color:var(--text-primary);">Connect</p>
+            <p style="margin:0;font-size:0.6rem;color:var(--text-muted);">OAuth in 2 clicks</p>
+          </div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:0 0.75rem;">
+          <div style="flex:1;height:2px;background:linear-gradient(90deg,rgba(6,182,212,0.3),rgba(139,92,246,0.2));"></div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin:0 -2px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <!-- Stage 2 (purple) -->
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:2.75rem;height:2.75rem;border-radius:12px;background:rgba(139,92,246,0.12);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.75" stroke-linecap="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <p style="margin:0;font-size:0.75rem;font-weight:700;color:var(--text-primary);">Automate</p>
+            <p style="margin:0;font-size:0.6rem;color:var(--text-muted);">Deals trigger invoices</p>
+          </div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:0 0.75rem;">
+          <div style="flex:1;height:2px;background:linear-gradient(90deg,rgba(139,92,246,0.2),rgba(34,197,94,0.2));"></div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin:0 -2px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <!-- Stage 3 (green) -->
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:2.75rem;height:2.75rem;border-radius:12px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.75" stroke-linecap="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <div>
+            <p style="margin:0;font-size:0.75rem;font-weight:700;color:var(--text-primary);">Recover</p>
+            <p style="margin:0;font-size:0.6rem;color:var(--text-muted);">AI handles overdue</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step cards — grid-3, DrawThings images (not SVG illustrations) -->
+      <div class="grid-3" style="gap:2rem;max-width:1000px;margin:0 auto;">
+        <div class="glass-card reveal reveal-delay-1" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right, var(--cyan-glow), transparent);pointer-events:none;"></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div class="step-num">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101"/></svg>
+            </div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);">Step 1</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">Connect HubSpot and Xero in seconds</h3>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Authorise both platforms via OAuth - no API keys, no developer required. HubXero reads your HubSpot pipeline and your Xero organisation and maps them automatically. Total setup time: under 10 minutes.</p>
+          <div style="margin-top:1.5rem;border-radius:10px;overflow:hidden;">
+            <img src="images/step-1.png" alt="Two app icons connected by a glowing line, OAuth connection screen visible" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-2" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right, var(--cyan-glow), transparent);pointer-events:none;"></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div class="step-num">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);">Step 2</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">Deals create invoices. Payments update deals.</h3>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Set your Closed-Won trigger once. From that point, every deal that moves to Closed Won creates a matching invoice in Xero automatically. And every payment event in Xero - paid, overdue, voided - updates the HubSpot deal stage without anyone touching it.</p>
+          <div style="margin-top:1.5rem;border-radius:10px;overflow:hidden;">
+            <img src="images/step-2.png" alt="HubSpot deal card with Closed Won badge, arrow pointing to Xero invoice" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-3" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right, var(--cyan-glow), transparent);pointer-events:none;"></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div class="step-num">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3"/></svg>
+            </div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);">Step 3</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">AI follows up on overdue invoices so you don't have to</h3>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">When an invoice crosses your overdue threshold, HubXero's AI drafts a contextual follow-up email - timed to the relationship, sized to the invoice, and toned to the situation. Review and send, or set it to fully automatic. The awkward chase is no longer your team's job.</p>
+          <div style="margin-top:1.5rem;border-radius:10px;overflow:hidden;">
+            <img src="images/step-3.png" alt="AI drafting an email with overdue invoice summary, send button visible" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="text-align:center;margin-top:2rem;">
+        <p style="color:var(--text-muted);font-size:0.85rem;font-style:italic;">HubSpot and Xero integrations available at launch. QuickBooks Online coming in V1.1.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       BUILT FOR — headline+image, persona cards, tags
+       ═══════════════════════════════════════════ -->
+  <section id="built-for">
+    <div class="container">
+      <div class="grid-2" style="gap:3rem;align-items:center;">
+        <div class="reveal">
+          <p class="section-label">Built For</p>
+          <h2 class="section-title">Built for the teams stuck in <span class="gradient-text">the middle of HubSpot and Xero.</span></h2>
+        </div>
+        <div class="reveal reveal-delay-2 mobile-hide-img" style="border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,0.35);">
+          <img src="images/built-for-persona.png" alt="Finance and RevOps team collaborating at desk, both HubSpot and Xero visible on screens" style="width:100%;height:auto;display:block;" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:2rem;gap:2rem;">
+        <div class="glass-card reveal reveal-delay-1">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);display:block;margin-bottom:1rem;">FINANCE MANAGER / CFO</span>
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">You should not need to open Xero to know if a deal is actually done.</h3>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">You are managing cash flow and revenue recognition for a 20-100 person company that uses HubSpot for sales and Xero for accounting. Since March 2026, the native sync is gone. You are the one reconciling two systems manually. HubXero gives you a single source of truth - and stops overdue invoices from silently destroying your payment timeline.</p>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-2">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);display:block;margin-bottom:1rem;">REVOPS MANAGER</span>
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">Your pipeline should reflect reality. Not a spreadsheet estimate.</h3>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">You built the HubSpot pipeline. You know exactly when a deal should close. What you do not know is whether the invoice went out, whether it was paid, and whether Finance has updated anything. HubXero closes the loop between your CRM and the accounting system so your revenue reports are not lies.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.65rem;" class="reveal">
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          20-100 person teams
+        </span>
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          $2-10M ARR
+        </span>
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          UK, Australia, New Zealand
+        </span>
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Active HubSpot users
+        </span>
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          Xero accounting teams
+        </span>
+        <span class="tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Post-March 2026 migration
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════
+       WAITLIST — 2-column: benefits left, form right (no .founding-box)
+       ═══════════════════════════════════════════ -->
+  <section id="waitlist">
+    <div class="container">
+      <div class="grid-2" style="gap:3rem 5rem;align-items:start;">
+        <!-- Left: copy + guarantee -->
+        <div class="reveal">
+          <p class="section-label">Early Access · Limited Spots</p>
+          <h2 class="section-title" style="margin-bottom:1.5rem;">Your invoices should <span class="gradient-text">pay for themselves.</span></h2>
+
+          <p style="font-weight:700;color:var(--text-primary);font-size:0.95rem;margin-bottom:0.75rem;">Sign up and get these immediately:</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;margin-bottom:1.25rem;">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong style="color:var(--text-primary);">HubSpot+Xero Migration Checklist (PDF)</strong> <span style="color:var(--text-muted);"> - The exact steps to audit your records after the March 2026 retirement. Instant download.</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong style="color:var(--text-primary);">Invoice Overdue Recovery Template Pack</strong> <span style="color:var(--text-muted);"> - 3 AI-ready follow-up templates for overdue invoices at 7, 14, and 30 days.</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong style="color:var(--text-primary);">Founding Member Priority Access</strong> <span style="color:var(--text-muted);"> - Personal onboarding call with the founder. Direct roadmap input. Locked founding price.</span></span>
+            </div>
+          </div>
+          <p style="color:var(--cyan);font-size:0.85rem;line-height:1.6;margin:0;">Founding cohort closes at 50 members.</p>
+
+          <!-- Effort-conditional guarantee -->
+          <div style="margin:1.25rem 0 0;padding:0.75rem 1rem;border:1px solid rgba(6,182,212,0.2);border-radius:10px;background:rgba(6,182,212,0.04);">
+            <p style="margin:0;font-size:0.85rem;font-weight:600;color:var(--cyan);">Our guarantee</p>
+            <p style="margin:0.35rem 0 0;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Join the waitlist free. We onboard you personally in the founding cohort. You pay only once you have seen HubXero sync a real invoice and watched your HubSpot deal update automatically. If it does not work for your setup in the first session, you owe nothing.</p>
+          </div>
+        </div>
+
+        <!-- Right: trust image + risk reversal badges + progressive disclosure form -->
+        <div class="reveal reveal-delay-1">
+          <div style="margin-bottom:1rem;border-radius:12px;overflow:hidden;">
+            <img src="images/early-access-trust.png" alt="HubSpot and Xero logos side by side with checkmark, early access badge" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+
+          <!-- Risk reversal badges — below image, above form -->
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem;margin-bottom:1.25rem;">
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--text-muted);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Free to join
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--text-muted);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No credit card
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--text-muted);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Cancel anytime
+            </span>
+          </div>
+
+          <!-- Success state -->
+          <div id="success-message" style="display:none;padding:2.5rem 0;">
+            <div style="width:3rem;height:3rem;background:rgba(6,182,212,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 style="font-size:1.5rem;font-weight:700;color:var(--text-primary);margin-bottom:0.75rem;">You are on the list!</h2>
+            <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.65;margin:0;">We will email you when early access opens. Keep an eye on your inbox.</p>
+          </div>
+
+          <!-- Form -->
+          <form id="signup-form" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:1.25rem;">
+            <div>
+              <label style="display:block;font-size:0.875rem;font-weight:500;color:var(--text-primary);margin-bottom:0.375rem;">Work email <span style="color:var(--cyan);">*</span></label>
+              <input id="email" type="email" required placeholder="your@company.com" style="width:100%;padding:0.65rem 1rem;box-sizing:border-box;" />
+            </div>
+
+            <!-- Progressive disclosure step 2 -->
+            <div id="form-step-2" style="display:none;flex-direction:column;gap:1.25rem;">
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:500;color:var(--text-primary);margin-bottom:0.375rem;">First name</label>
+                <input id="first-name" type="text" placeholder="Your first name" style="width:100%;padding:0.65rem 1rem;box-sizing:border-box;" />
+              </div>
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:500;color:var(--text-primary);margin-bottom:0.375rem;">Which CRM does your team use?</label>
+                <select id="qualifying-q1" style="width:100%;padding:0.65rem 1rem;box-sizing:border-box;">
+                  <option value="" disabled selected>Select a range...</option>
+                  <option value="hubspot_sales_hub">HubSpot Sales Hub</option>
+                  <option value="hubspot_starter">HubSpot Starter/Free</option>
+                  <option value="other_crm">Other CRM</option>
+                </select>
+              </div>
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:500;color:var(--text-primary);margin-bottom:0.375rem;">Which accounting platform?</label>
+                <select id="qualifying-q2" style="width:100%;padding:0.65rem 1rem;box-sizing:border-box;">
+                  <option value="" disabled selected>Select one...</option>
+                  <option value="xero">Xero</option>
+                  <option value="quickbooks">QuickBooks</option>
+                  <option value="other_accounting">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn-primary">
+              Join the waitlist for early access
+            </button>
+            <p style="font-size:0.75rem;color:rgba(180,210,230,0.65);text-align:center;margin:0;">By signing up you accept our <a href="/privacy.html" style="color:var(--cyan);text-decoration:underline;">Privacy Policy</a> and analytics cookies. No spam. We will only contact you about HubXero.</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.75rem;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:12px;background:var(--surface);cursor:pointer;" onclick="openCalendly(event)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:0.875rem;color:var(--cyan);font-weight:600;">Book a call with the founder</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       PROOF BADGE — LeanAI Studio attribution
+       ═══════════════════════════════════════════ -->
+  <section style="padding:2.5rem 0 0;">
+    <div class="container" style="text-align:center;">
+      <div class="reveal" style="display:inline-flex;align-items:center;gap:1rem;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:14px;background:var(--surface);">
+        <img src="https://leanaistudio.com/founder.jpeg" alt="Dario Verghi" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(6,182,212,0.2);" />
+        <div style="text-align:left;">
+          <p style="margin:0;font-size:0.875rem;color:var(--text-primary);font-weight:600;">A <a href="https://leanaistudio.com" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">LeanAI Studio</a> product, built by <a href="https://www.linkedin.com/in/verghi/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">Dario Verghi</a></p>
+          <p style="margin:0.25rem 0 0;font-size:0.8125rem;color:var(--text-muted);line-height:1.5;">A HubSpot+Xero integration built to close the loop the native sync left open.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer style="padding:2.5rem 0;margin-top:1rem;">
+    <div class="container">
+      <div class="sep" style="margin-bottom:1.5rem;"></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem;margin-bottom:1.25rem;">
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span style="font-weight:800;font-size:0.875rem;color:var(--text-primary);">HubXero</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;font-size:0.75rem;">
+          <a href="mailto:info@leanaistudio.com" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-muted)'">info@leanaistudio.com</a>
+          <a href="/privacy.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
+          <a href="/terms.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a>
+        </div>
+      </div>
+      <div style="font-size:0.7rem;color:var(--text-muted);line-height:1.8;opacity:0.6;">
+        <p style="margin:0;">&copy; 2026 LeanAI Studio srl - P.IVA/CF: 14561020968</p>
+        <p style="margin:0;">HubXero is a product of LeanAI Studio srl</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════════ -->
+  <script>
+    // ── Config ──
+    var CALENDLY_URL = 'https://calendly.com/dario-leanaistudio/30min';
+
+    // ── Scroll reveal ──
+    (function() {
+      var reveals = document.querySelectorAll('.reveal, .reveal-scale');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // ── Capability tabs (auto-rotate + progress bar) ──
+    (function() {
+      var tabs = document.querySelectorAll('.cap-tab');
+      var panels = document.querySelectorAll('.cap-panel');
+      var current = 0;
+      var total = tabs.length;
+      var interval = null;
+      var paused = false;
+      var rotating = false;
+      var ROTATE_MS = 4000;
+
+      document.documentElement.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
+
+      function switchTo(idx) {
+        tabs.forEach(function(t) { t.classList.remove('active', 'rotating'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        tabs[idx].classList.add('active');
+        panels[idx].classList.add('active');
+        if (rotating) {
+          void tabs[idx].offsetWidth;
+          tabs[idx].classList.add('rotating');
+        }
+        current = idx;
+      }
+
+      function advance() {
+        switchTo((current + 1) % total);
+      }
+
+      function startRotation() {
+        if (interval) return;
+        rotating = true;
+        tabs[current].classList.add('rotating');
+        interval = setInterval(advance, ROTATE_MS);
+      }
+
+      function stopRotation() {
+        clearInterval(interval);
+        interval = null;
+        rotating = false;
+        tabs.forEach(function(t) { t.classList.remove('rotating'); });
+      }
+
+      tabs.forEach(function(tab, i) {
+        tab.addEventListener('click', function() {
+          switchTo(i);
+          stopRotation();
+          if (!paused) startRotation();
+        });
+      });
+
+      var capSection = document.querySelector('.cap-tab').closest('section');
+      if (capSection) {
+        capSection.addEventListener('mouseenter', function() {
+          paused = true;
+          stopRotation();
+        });
+        capSection.addEventListener('mouseleave', function() {
+          paused = false;
+          startRotation();
+        });
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting && !paused) { startRotation(); }
+          else if (!e.isIntersecting) { stopRotation(); }
+        });
+      }, { threshold: 0.2 });
+      if (capSection) observer.observe(capSection);
+    })();
+
+    // ── UTM extraction ──
+    function getUTMParams() {
+      var params = new URLSearchParams(window.location.search);
+      var utm = {};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+        var v = params.get(k); if (v) utm[k] = v;
+      });
+      return utm;
+    }
+
+    // ── Progressive form ──
+    var formStep = 1;
+    function showStep2() {
+      if (formStep === 1) {
+        formStep = 2;
+        document.getElementById('form-step-2').style.display = 'flex';
+      }
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (formStep === 1) { showStep2(); return; }
+      grantConsent();
+      var btn = document.getElementById('submit-btn');
+      btn.textContent = 'Joining...';
+      btn.disabled = true;
+
+      var utm = getUTMParams();
+      var email = document.getElementById('email').value;
+      var firstName = document.getElementById('first-name').value;
+      var q1 = document.getElementById('qualifying-q1').value || '';
+      var q2 = document.getElementById('qualifying-q2').value || '';
+      var payload = {
+        secret: 'hubxero-founding-2026',
+        product: 'HubXero',
+        email: email,
+        first_name: firstName,
+        qualifying_q1: q1,
+        qualifying_q2: q2,
+        source: 'HubXero',
+        traffic_source: utm.utm_source || 'direct',
+        submitted_at: new Date().toISOString(),
+        page_url: window.location.href
+      };
+      Object.assign(payload, utm);
+
+      // Slack
+      try { await fetch('/api/slack-notify', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text:'*[HubXero]* New waitlist signup!\n*Email:* '+email+'\n*Name:* '+(firstName||'n/a')+'\n*Q1:* '+(q1||'n/a')+'\n*Q2:* '+(q2||'n/a')+'\n*Traffic:* '+(utm.utm_source||'direct') }) }); } catch(ex){}
+
+      // Google Sheet
+      try { await fetch('/api/sheet-notify', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }); } catch(ex){}
+
+      // Resend
+      try { await fetch('/api/resend-notify', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email,first_name:firstName,product:payload.product}) }); } catch(ex){}
+
+      // Vercel Analytics
+      try { if(window.va) window.va('event',{name:'waitlist-signup',data:{product:'HubXero',traffic_source:utm.utm_source||'direct'}}); } catch(ex){}
+
+      // Google Ads conversion
+      try { if(typeof gtag==='function') gtag('event','conversion',{send_to:'AW-18071371531/z6DhCLq9-JccEIv-jKlD',value:1.0,currency:'USD'}); } catch(ex){}
+
+      // Success
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+    }
+
+    // ── Calendly ──
+    function openCalendly(e) {
+      if(e) e.preventDefault();
+      grantConsent();
+      try { if(typeof gtag==='function') gtag('event','conversion',{send_to:'AW-18071371531/z6DhCLq9-JccEIv-jKlD',value:1.0,currency:'USD'}); } catch(ex){}
+      try { if(window.va) window.va('event',{name:'calendly-booking',data:{product:'hubxero'}}); } catch(ex){}
+      if(window.Calendly) { Calendly.initPopupWidget({url:CALENDLY_URL+'?utm_source='+encodeURIComponent('hubxero')+'&utm_medium=lp&utm_campaign=founder-call'}); }
+      return false;
+    }
+
+    // Calendly confirmed booking listener
+    window.addEventListener('message', function(ev) {
+      if(!ev.data||ev.data.event!=='calendly.event_scheduled') return;
+      var p=ev.data.payload||{}, inv=p.invitee||{};
+      try { if(typeof gtag==='function') gtag('event','conversion',{send_to:'AW-18071371531/z6DhCLq9-JccEIv-jKlD',value:5.0,currency:'USD'}); } catch(ex){}
+      try { fetch('/api/slack-notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:'*[HubXero]* Calendly booked! '+(inv.email||'unknown')})}); } catch(ex){}
+    });
+  </script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
