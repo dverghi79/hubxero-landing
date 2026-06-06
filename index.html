@@ -861,7 +861,13 @@
     var step2 = document.getElementById('form-step-2');
     if (email && emailInput) {
       emailInput.value = email;
-      if (step2) step2.style.display = 'flex';
+      // Advance the progressive form state, not just visibility, so the first
+      // submit processes instead of re-revealing step 2.
+      if (typeof showStep2 === 'function') {
+        showStep2();
+      } else if (step2) {
+        step2.style.display = 'flex';
+      }
     }
     if (company && companyInput) companyInput.value = company;
   })();
