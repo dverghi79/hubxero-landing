@@ -849,5 +849,22 @@
   </script>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+  // Pre-fill audit form from URL params (gap tool bridge CTA)
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var email = params.get('email');
+    var company = params.get('company');
+    if (!email && !company) return;
+    var emailInput = document.getElementById('email');
+    var companyInput = document.getElementById('company');
+    var step2 = document.getElementById('form-step-2');
+    if (email && emailInput) {
+      emailInput.value = email;
+      if (step2) step2.style.display = 'flex';
+    }
+    if (company && companyInput) companyInput.value = company;
+  })();
+  </script>
 </body>
 </html>
