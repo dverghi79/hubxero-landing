@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/gap", "destination": "https://gap.hubxero.leanaistudio.com/gap" },
-    { "source": "/gap/:path*", "destination": "https://gap.hubxero.leanaistudio.com/gap/:path*" }
+    { "source": "/gap/", "destination": "https://gap.hubxero.leanaistudio.com/gap" },
+    { "source": "/gap/:path+", "destination": "https://gap.hubxero.leanaistudio.com/gap/:path+" }
   ]
 }
